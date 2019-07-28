@@ -21,7 +21,7 @@ public class NewsApplication extends Application {
                 .build();
     }
 
-    public static NewsApplication getInstance() {
+    public static NewsApplication getApp() {
         return sInstance;
     }
 

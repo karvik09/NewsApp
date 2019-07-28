@@ -1,42 +1,40 @@
 package com.newsapp.db.dao;
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
-import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
-import androidx.room.RawQuery;
-import androidx.sqlite.db.SimpleSQLiteQuery;
-import androidx.sqlite.db.SupportSQLiteQuery;
+import androidx.room.Transaction;
 
-import com.newsapp.db.entities.Feed;
-import com.newsapp.db.entities.Like;
-import com.newsapp.models.FeedModel;
+import com.newsapp.constants.Category;
+import com.newsapp.constants.Country;
+import com.newsapp.db.entities.Article;
 
 import java.util.List;
 
-import io.reactivex.Flowable;
 import io.reactivex.Single;
 
 @Dao
-public interface NewsDao {
+public abstract class NewsDao {
 
-    public String FETCH_SINGLE_FEED_QUERY_STRING = "select feed.*, like.* from feed left join like on feed.name=like.like_to where feed.name=?";
+    public Single<long[]> insertCategoryArticles(List<Article> articles, Category category,Country country) {
+
+        for (Article article : articles) {
+            article.setCategory(category.toString());
+            article.setCountry(country.toString());
+        }
+        return insertArticles(articles);
+    }
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    Single<long[]> insertFeeds(List<Feed> feeds);
+    abstract Single<long[]> insertArticles(List<Article> articles);
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    Single<Void> likeFeed(Like like);
+    public Single<List<Article>> loadCategoryArticle(int pageNumber, int pageSize, Category category, Country country) {
+        return loadPages((pageNumber - 1) * pageSize, pageSize, category.toString(),country.toString());
+    }
 
-    @Delete
-    Single<Integer> deleteLike(Like like);
+    @Query("SELECT * FROM article WHERE category=:category AND country=:country LIMIT :offset,:pageSize")
+    abstract Single<List<Article>> loadPages(int offset, int pageSize, String category,String country);
 
-    @Query("select * from feed")
-    Flowable<List<Feed>> getAllFeeds();
-
-    @RawQuery(observedEntities = {Feed.class,Like.class})
-    Flowable<FeedModel> getFeedWithName(SupportSQLiteQuery query);
 
 }

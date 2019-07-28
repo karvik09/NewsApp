@@ -5,8 +5,9 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.newsapp.annotations.ViewModelKey;
 import com.newsapp.baseComponent.BaseViewModelFactory;
-import com.newsapp.viewModels.FeedDetailsViewModel;
-import com.newsapp.viewModels.FeedViewModel;
+import com.newsapp.repositories.SearchArticleRepository;
+import com.newsapp.viewModels.ArticleViewModel;
+import com.newsapp.viewModels.SearchArticleViewModel;
 
 import dagger.Binds;
 import dagger.Module;
@@ -17,13 +18,13 @@ abstract  class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(FeedViewModel.class)
-    abstract ViewModel feedViewModel(FeedViewModel viewModel);
+    @ViewModelKey(ArticleViewModel.class)
+    abstract ViewModel articleViewModel(ArticleViewModel viewModel);
 
     @Binds
     @IntoMap
-    @ViewModelKey(FeedDetailsViewModel.class)
-    abstract ViewModel feedDetailsViewModel(FeedDetailsViewModel viewModel);
+    @ViewModelKey(SearchArticleViewModel.class)
+    abstract ViewModel searchArticleViewModel(SearchArticleViewModel viewModel);
 
     @Binds
     abstract ViewModelProvider.Factory bindViewModelFactory(BaseViewModelFactory viewModelFactory);

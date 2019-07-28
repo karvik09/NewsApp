@@ -7,10 +7,9 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import com.newsapp.db.dao.NewsDao;
-import com.newsapp.db.entities.Feed;
-import com.newsapp.db.entities.Like;
+import com.newsapp.db.entities.Article;
 
-@Database(entities = {Feed.class, Like.class}, version = 1)
+@Database(entities = {Article.class}, version = 1)
 abstract public class NewsDatabase extends RoomDatabase {
 
     private static NewsDatabase sInstance;
@@ -28,6 +27,6 @@ abstract public class NewsDatabase extends RoomDatabase {
         return sInstance;
     }
 
-    public abstract NewsDao getFeedDao();
+    public abstract NewsDao getNewsDao();
 
 }
