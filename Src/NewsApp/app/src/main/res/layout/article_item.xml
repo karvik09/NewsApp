@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/padding_16dp"
+    android:layout_marginEnd="@dimen/padding_16dp"
+    android:layout_marginTop="@dimen/padding_12dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/article_image"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:src="@drawable/image_placeholder"/>
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/padding_16dp"
+            android:paddingEnd="@dimen/padding_16dp"
+            android:paddingTop="@dimen/padding_16dp"
+            android:paddingBottom="@dimen/padding_4dp"
+            android:textSize="22sp"
+            android:text="Mookie hits 3 HRs after kid's homer request - ESPN"
+            android:textColor="@color/black" />
+        <TextView
+            android:id="@+id/time_and_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/padding_16dp"
+            android:paddingEnd="@dimen/padding_16dp"
+            android:paddingBottom="@dimen/padding_4dp"
+            android:singleLine="true"
+            android:text="@string/time_author"
+            android:textSize="@dimen/sp_12"/>
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/padding_16dp"
+            android:paddingTop="@dimen/padding_6dp"
+            android:paddingEnd="@dimen/padding_12dp"
+            android:paddingBottom="@dimen/padding_16dp"
+            android:text="While Japan and South Korea may not agree on who owns a cluster of tiny, rocky islands off their coastlines, they do agree that Russian bombers shouldn't be flying above them."
+            android:textColor="@android:color/tertiary_text_dark"
+            android:textSize="@dimen/sp_16"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
