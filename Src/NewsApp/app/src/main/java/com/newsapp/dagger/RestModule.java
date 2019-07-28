@@ -19,7 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 @Module
 public class RestModule {
 
-    private static final String BASE_URL = "https://newsapi.org/v2/?apiKey=" + AppConstant.API_KEY;
+    private static final String BASE_URL = "https://newsapi.org/v2/";
 
 
     @Provides
