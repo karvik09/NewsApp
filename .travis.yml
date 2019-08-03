@@ -28,5 +28,5 @@ addons:
       name: VIKAS9899/NewsApp
       description: Build submitted via Travis CI
     notification_email: bossvicky42@gmail.com
-    build_command_prepend: VIKAS9899/NewApp/gradle clean
-    build_command: VIKAS9899/NewApp/gradle build
+    build_command_prepend: Src/NewApp/gradle clean
+    build_command: Src/NewApp/gradle build
