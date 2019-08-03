@@ -18,7 +18,7 @@ install:
 # Let's solve it here with the new command 'sdkmanager'
 - yes | sdkmanager --verbose tools
 script:
-- ./gradlew clean build
+- ./Src/NewsApp/gradlew clean build
 env:
   matrix:
   - ANDROID_TARGET=android-26 ANDROID_ABI=armeabi-v7a
