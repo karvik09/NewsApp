@@ -13,10 +13,6 @@ install:
 # Check tools and dependencies installed
 - yes | sdkmanager --list
 
-# After Travis updated image with Android base environment, building via ant is not possible anymore.
-# Port library tests to new-style with JUnit 4 and gradle build.
-- rm pom.xml
-
 # On the other hand, Travis still uses 'android' command behind the 'components' section update. 
 # That command is obsolete and cannot update Android SDK Tools after 25.2.5.
 # Let's solve it here with the new command 'sdkmanager'
